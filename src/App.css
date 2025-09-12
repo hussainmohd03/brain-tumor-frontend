@@ -5,6 +5,7 @@
 :root {
   --main-color: #06485f;
   --text-white: #e4f1f7;
+  --text-light-white: #c4c4c4;
 }
 
 body {
@@ -75,14 +76,56 @@ body {
 }
 
 #signup-title {
-  font-size: 30px;
-  font-weight: 400;
+  font-size: 37px;
+  font-weight: 200;
 }
 .signup-content {
-  margin-top: -2%;
+  margin-top: -5%;
 }
 #signup-header {
-  font-size: 60px;
+  font-size: 50px;
+}
+
+.input-field {
+  display: flex;
+  flex-direction: column;
+}
+.input-field input {
+  position: relative;
+  padding: 2%;
+  width: 60%;
+  background-color: transparent;
+  border: 1px solid var(--text-light-white);
+  border-radius: 8px;
+  caret-color: var(--text-light-white);
+  margin-top: 0.7%;
+  color: var(--text-light-white);
+  margin-bottom: 1%;
+}
+.input-field input:focus {
+  outline: var(--text-light-white);
+}
+
+.input-field label {
+  position: absolute;
+  z-index: 1000;
+  color: white;
+  background-color: #07495F;
+  padding: 0 0.5%;
+  margin-left: 1%;
+}
+
+.signup-button{
+  width: 64%;
+}
+#login-prompt{
+  font-size: 18px;
+  margin: 3% 19%;
+
+}
+#login-prompt a{
+  color: #F1EFED;
+  font-weight: 600;
 }
 
 @media (max-width: 768px) {
