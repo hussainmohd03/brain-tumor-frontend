@@ -47,21 +47,21 @@ body {
   margin-top: 3%;
   line-height: 15px;
   color: var(--text-white);
-  font-family: 'oracle sans', sans-serif;
+  font-family: 'oracle sans';
 }
 
 .page-content h2 {
-  font-size: 41px;
+  font-size: 39px;
   font-weight: 300;
 }
 .page-content h1 {
-  font-size: 81px;
+  font-size: 63px;
 }
 .page-content p {
   font-size: 25px;
   font-weight: 150;
-  line-height: 30px;
-  width: 80%;
+  line-height: 35px;
+  width: 78%;
 }
 .page-content button {
   margin-top: 30px;
@@ -76,14 +76,14 @@ body {
 }
 
 #signup-title {
-  font-size: 37px;
+  font-size: 35px;
   font-weight: 200;
 }
 .signup-content {
   margin-top: -5%;
 }
 #signup-header {
-  font-size: 50px;
+  font-size: 45px;
 }
 
 .input-field {
@@ -93,7 +93,7 @@ body {
 .input-field input {
   position: relative;
   padding: 2%;
-  width: 60%;
+  width: 58%;
   background-color: transparent;
   border: 1px solid var(--text-light-white);
   border-radius: 8px;
@@ -116,7 +116,7 @@ body {
 }
 
 .signup-button{
-  width: 64%;
+  width: 62%;
 }
 #login-prompt{
   font-size: 18px;
