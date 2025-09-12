@@ -2,15 +2,21 @@
   font-family: 'oracle sans';
   src: url(fonts/OracleSans-Regular.ttf);
 }
+:root {
+  --main-color: #06485f;
+  --text-white: #e4f1f7;
+}
+
 body {
   margin: 0;
   box-sizing: border-box;
 }
-.landing-page-main {
+.page-container {
   width: 100vw;
   height: 100vh;
-  background-color: #06485f;
+  background-color: var(--main-color);
   background-image: url('landing-backgroud-img.svg');
+  background-size: cover;
   overflow: hidden;
 
   display: grid;
@@ -18,7 +24,8 @@ body {
 }
 .landing-page-logo {
   grid-area: 1 / 1 / 1 / 1;
-  margin: 5%;
+  margin-left: 5%;
+  margin-top: 3%;
 }
 .landing-page-right-img {
   grid-area: 1 / 2 / span 3;
@@ -33,33 +40,33 @@ body {
   bottom: 0;
   right: 7%;
 }
-.landing-page-content {
+.page-content {
   grid-area: 2 / 1 / span 3 / 1;
   margin-left: 5%;
   margin-top: 3%;
   line-height: 15px;
-  color: #e4f1f7;
+  color: var(--text-white);
   font-family: 'oracle sans', sans-serif;
 }
 
-.landing-page-content h2 {
+.page-content h2 {
   font-size: 41px;
   font-weight: 300;
 }
-.landing-page-content h1 {
+.page-content h1 {
   font-size: 81px;
 }
-.landing-page-content p {
+.page-content p {
   font-size: 25px;
   font-weight: 150;
   line-height: 30px;
   width: 80%;
 }
-.landing-page-content button {
+.page-content button {
   margin-top: 30px;
   padding: 20px 25px;
   font-size: 20px;
-  background-color: #ffffff;
+  background-color: white;
   color: black;
   border: none;
   border-radius: 8px;
@@ -67,9 +74,19 @@ body {
   font-weight: 600;
 }
 
+#signup-title {
+  font-size: 30px;
+  font-weight: 400;
+}
+.signup-content {
+  margin-top: -2%;
+}
+#signup-header {
+  font-size: 60px;
+}
 
 @media (max-width: 768px) {
-  .landing-page-main {
+  .page-container {
     grid-template: 20% 60% 1fr / 1fr;
   }
   .landing-page-logo {
@@ -79,28 +96,27 @@ body {
   #landing-lady-img {
     display: none;
   }
-  .landing-page-content {
+  .page-content {
     grid-area: 2 / 1;
     margin: 5%;
     line-height: 15px;
-    color: #e4f1f7;
     font-family: 'oracle sans', sans-serif;
   }
 
-  .landing-page-content h2 {
+  .page-content h2 {
     font-size: 35px;
     font-weight: 300;
   }
-  .landing-page-content h1 {
+  .page-content h1 {
     font-size: 55px;
   }
-  .landing-page-content p {
+  .page-content p {
     font-size: 20px;
     font-weight: 150;
     line-height: 26px;
     width: 100%;
   }
-  .landing-page-content button {
+  .page-content button {
     margin-top: 20px;
     padding: 15px 20px;
     font-size: 16px;

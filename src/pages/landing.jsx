@@ -4,9 +4,9 @@ import OracleLogo from '../components/OracleLogo'
 const Landing = () => {
   return (
     <>
-      <main className="landing-page-main">
+      <main className="page-container">
         <OracleLogo />
-        <section className="landing-page-content">
+        <section className="page-content">
           <h2>Oracle Health</h2>
           <h1>Possibilities</h1>
           <p>
