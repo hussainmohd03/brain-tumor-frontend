@@ -6,11 +6,14 @@
   --main-color: #06485f;
   --text-white: #e4f1f7;
   --text-light-white: #c4c4c4;
+  --checkbox-color: #009fbf;
+  --checkbox-unchecked: #e2faff;
 }
 
 body {
   margin: 0;
   box-sizing: border-box;
+  font-family: 'oracle sans';
 }
 .page-container {
   width: 100vw;
@@ -45,9 +48,8 @@ body {
   grid-area: 2 / 1 / span 3 / 1;
   margin-left: 5%;
   margin-top: 3%;
-  line-height: 15px;
+  line-height: 20px;
   color: var(--text-white);
-  font-family: 'oracle sans';
 }
 
 .page-content h2 {
@@ -73,6 +75,7 @@ body {
   border-radius: 8px;
   cursor: pointer;
   font-weight: 600;
+  font-family: 'oracle sans';
 }
 
 #signup-title {
@@ -110,24 +113,64 @@ body {
   position: absolute;
   z-index: 1000;
   color: white;
-  background-color: #07495F;
+  background-color: #07495f;
   padding: 0 0.5%;
   margin-left: 1%;
 }
 
-.signup-button{
+.signup-button {
   width: 62%;
 }
-#login-prompt{
+#login-prompt {
   font-size: 18px;
   margin: 3% 18%;
-
 }
-#login-prompt a{
-  color: #F1EFED;
+#login-prompt a {
+  color: #f1efed;
   font-weight: 600;
 }
-
+.input-checkbox {
+  display: flex;
+  align-items: flex-start;
+  gap: 1.5%;
+}
+.input-checkbox input {
+  appearance: none;
+  width: 37px;
+  height: 37px;
+  border: 1px solid var(--checkbox-color);
+  border-radius: 7px;
+  background-color: var(--checkbox-unchecked);
+  accent-color: var(--text-white);
+  cursor: pointer;
+  margin-left: 0;
+  transition: background 0.2s;
+}
+.input-checkbox input:checked {
+  background-color: var(--checkbox-color);
+}
+.input-checkbox label {
+  font-size: 16px;
+  font-weight: 300;
+  width: 60%;
+  line-height: 25px;
+}
+.input-checkbox span {
+  text-decoration: underline;
+}
+.password-instructions {
+  display: flex;
+  flex-direction: column;
+  color: #8fbfd0;
+  margin-top: 2%;
+  margin-bottom: 7%;
+}
+.password-instructions p {
+  margin: 0;
+  font-size: 13px;
+  font-weight: 200;
+  line-height: 18px;
+}
 @media (max-width: 768px) {
   .page-container {
     grid-template: 20% 60% 1fr / 1fr;
