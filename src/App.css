@@ -133,6 +133,8 @@ body {
   display: flex;
   align-items: flex-start;
   gap: 1.5%;
+  margin-top: 6%;
+  margin-bottom: -2%;
 }
 .input-checkbox input {
   appearance: none;

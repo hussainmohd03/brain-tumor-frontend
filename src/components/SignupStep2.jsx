@@ -1,3 +1,4 @@
+import Terms from "./terms"
 const SignupStep2 = ({ formData, handleChange }) => {
   return (
     <>
@@ -26,13 +27,7 @@ const SignupStep2 = ({ formData, handleChange }) => {
         <p>Keep it longer than 8 characters.</p>
         <p>Include a number.</p>
       </div>
-      <div className="input-checkbox">
-        <input type="checkbox" id="terms" />
-        <label htmlFor="terms">
-          By continuing you agree to Hussain’s CoolProject{' '}
-          <span>Terms and conditions</span> and <span>Privacy Policy</span>
-        </label>
-      </div>
+      <Terms formData={formData} handleChange={handleChange} />
     </>
   )
 }

@@ -1,19 +1,13 @@
 import OracleLogo from '../components/OracleLogo'
 import { useNavigate } from 'react-router-dom'
 import { useState } from 'react'
-import SignupStep1 from '../components/SignupStep1'
-import SignupStep2 from '../components/SignupStep2'
-
-const Signup = () => {
+import Terms from '../components/terms'
+import SigninForm from '../components/SigninForm'
+const Signin = () => {
   const navigate = useNavigate()
-  const [next, setNext] = useState(false)
   const [formData, setFormData] = useState({
-    fullName: '',
     email: '',
-    institution: '',
-    nhra: '',
     password: '',
-    confirmPassword: '',
     checked: false
   })
 
@@ -27,21 +21,13 @@ const Signup = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault()
-    if (!next) {
-      setNext(true)
-      return
-    }
     const userData = {
-      fullName: formData.fullName,
       email: formData.email,
-      institution: formData.institution,
-      nhra: formData.nhra,
       password: formData.password,
       checked: formData.checked
     }
     console.log(userData)
-    setNext(false)
-    navigate('/signin')
+    // navigate('/dashboard')
   }
 
   return (
@@ -50,28 +36,18 @@ const Signup = () => {
         <OracleLogo />
         <section className="page-content signup-content">
           <h2 id="signup-title">Get client intuitive clinical experiences </h2>
-          <h1 id="signup-header">Sign up</h1>
+          <h1 id="signup-header">Sign in</h1>
           <form onSubmit={handleSubmit}>
-            {(!next && (
-              <SignupStep1 formData={formData} handleChange={handleChange} />
-            )) || (
-              <SignupStep2 formData={formData} handleChange={handleChange} />
-            )}
-
+            <SigninForm formData={formData} handleChange={handleChange} />
+            <Terms formData={formData} handleChange={handleChange} />
             <button className="signup-button" type="submit">
-              {!next ? 'Continue' : 'Sign up'}
+              Sign in
             </button>
           </form>
-          {!next && (
-            <p id="login-prompt">
-              Already have an account? <a href="/login">Login</a>
-            </p>
-          )}
         </section>
         <img src="oracle-logo.svg" alt="Oracle Logo" id="oracle-logo" />
       </main>
     </>
   )
 }
-
-export default Signup
+export default Signin
