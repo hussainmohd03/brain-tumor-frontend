@@ -17,12 +17,12 @@ const Landing = () => {
         </section>
         <section className="landing-page-right-img">
           <img
-            src="landing-side-img.svg"
+            src="/images/landing-side-img.svg"
             alt="Landing page Lady Image"
             id="landing-lady-img"
           />
         </section>
-        <img src="oracle-logo.svg" alt="Oracle Logo" id="oracle-logo" />
+        <img src="/logos/oracle-logo.svg" alt="Oracle Logo" id="oracle-logo" />
       </main>
     </>
   )

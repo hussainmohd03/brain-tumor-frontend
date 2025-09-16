@@ -27,7 +27,7 @@ const Signin = () => {
       checked: formData.checked
     }
     console.log(userData)
-    // navigate('/dashboard')
+    navigate('/dashboard')
   }
 
   return (
@@ -44,8 +44,12 @@ const Signin = () => {
               Sign in
             </button>
           </form>
+
+          <p id="login-prompt">
+            Don’t have an account? <a href="/signup">Sign up</a>
+          </p>
         </section>
-        <img src="oracle-logo.svg" alt="Oracle Logo" id="oracle-logo" />
+        <img src="/logos/oracle-logo.svg" alt="Oracle Logo" id="oracle-logo" />
       </main>
     </>
   )

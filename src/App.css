@@ -8,6 +8,7 @@
   --text-light-white: #c4c4c4;
   --checkbox-color: #009fbf;
   --checkbox-unchecked: #e2faff;
+  --body-bg-color: #F1EFED;
 }
 
 body {
@@ -19,7 +20,7 @@ body {
   width: 100vw;
   height: 100vh;
   background-color: var(--main-color);
-  background-image: url('landing-backgroud-img.svg');
+  background-image: url('/images/landing-backgroud-img.svg');
   background-size: cover;
   overflow: hidden;
 
@@ -173,6 +174,70 @@ body {
   font-weight: 200;
   line-height: 18px;
 }
+
+.main-container {
+  display: grid;
+  grid-template: 8% 1fr / 6.5% 1.5fr 1fr;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  background-color: var(--body-bg-color);
+}
+.header {
+  grid-area: 1 / 1 / 1 / span 3;
+  background-color: var(--main-color);
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 2%;
+}
+.sidebar {
+  grid-area: 2 / 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border-right: 1px solid var(--text-light-white);
+  
+
+}
+.nav-links {
+  margin-top: 5%;
+  width: 100%;
+  height: 50%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+
+}
+.bottom-navlinks {
+  width: 100%;
+  height: 15%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20%;
+  margin-top: auto;
+  
+}
+.profile-right {
+  grid-area: 2 / 3;
+}
+.profile-left {
+  grid-area: 2 / 2;
+}
+.profile-left hr {
+  width: 58%;
+  border: none;
+  height: 0.5px;
+  opacity: 0.5;
+  
+  background-color: var(--main-color);
+}
+
+
+
 @media (max-width: 768px) {
   .page-container {
     grid-template: 20% 60% 1fr / 1fr;

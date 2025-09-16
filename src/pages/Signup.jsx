@@ -64,11 +64,11 @@ const Signup = () => {
           </form>
           {!next && (
             <p id="login-prompt">
-              Already have an account? <a href="/login">Login</a>
+              Already have an account? <a href="/signin">Login</a>
             </p>
           )}
         </section>
-        <img src="oracle-logo.svg" alt="Oracle Logo" id="oracle-logo" />
+        <img src="/logos/oracle-logo.svg" alt="Oracle Logo" id="oracle-logo" />
       </main>
     </>
   )

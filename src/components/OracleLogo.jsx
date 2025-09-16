@@ -2,7 +2,7 @@ const OracleLogo = () => {
   return (
     <>
       <section className="landing-page-logo">
-        <img src="logo.svg" alt="OHP Logo" />
+        <img src="/logos/logo-large.svg" alt="Oracle health Logo" />
       </section>
     </>
   )
