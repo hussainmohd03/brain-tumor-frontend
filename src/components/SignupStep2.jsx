@@ -13,7 +13,7 @@ const SignupStep2 = ({ formData, handleChange }) => {
         />
       </div>
       <div className="input-field">
-        <label htmlFor="confirmPassword">Confirm Password*</label>
+        <label htmlFor="confirmPassword">Confirm password*</label>
         <input
           type="password"
           name="confirmPassword"

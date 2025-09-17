@@ -9,7 +9,7 @@ const Terms = ({ formData, handleChange }) => {
         name="checked"
       />
       <label htmlFor="terms">
-        By continuing you agree to Hussain’s CoolProject{' '}
+        By continuing you agree to Hussain’s Cool Project{' '}
         <span>Terms and conditions</span> and <span>Privacy Policy</span>
       </label>
     </div>
