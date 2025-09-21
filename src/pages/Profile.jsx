@@ -41,7 +41,7 @@ const Profile = () => {
           </div>
         </section>
         <section className="profile-left">
-          <h1>Profile</h1>
+          <h1 className="page-title">Profile</h1>
           <form>
             <ProfileForm
               profile={profile}
