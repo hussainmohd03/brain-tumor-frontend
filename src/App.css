@@ -369,21 +369,24 @@ body {
 }
 
 /* The switch - the box around the slider */
-.container, .container2 {
+.container,
+.container2 {
   width: 51px;
   height: 31px;
   position: relative;
 }
 
 /* Hide default HTML checkbox */
-.checkbox, .checkbox2  {
+.checkbox,
+.checkbox2 {
   opacity: 0;
   width: 0;
   height: 0;
   position: absolute;
 }
 
-.switch, .switch2 {
+.switch,
+.switch2 {
   width: 100%;
   height: 100%;
   display: block;
@@ -394,7 +397,8 @@ body {
 }
 
 /* The slider */
-.slider, .slider2 {
+.slider,
+.slider2 {
   width: 27px;
   height: 27px;
   position: absolute;
@@ -407,11 +411,13 @@ body {
   cursor: pointer;
 }
 
-.checkbox:checked + .switch, .checkbox2:checked + .switch2 {
-  background-color: #65C466;
+.checkbox:checked + .switch,
+.checkbox2:checked + .switch2 {
+  background-color: #65c466;
 }
 
-.checkbox:checked + .switch .slider, .checkbox2:checked + .switch2 .slider2 {
+.checkbox:checked + .switch .slider,
+.checkbox2:checked + .switch2 .slider2 {
   left: calc(50% - 27px / 2 + 10px);
   top: calc(50% - 27px / 2);
 }
@@ -442,10 +448,29 @@ body {
   font-size: 17px;
 }
 .delete-button {
-  background-color: #C74634;
+  background-color: #c74634;
 }
 .clear-button {
-  background-color: #A7A7A7;
+  background-color: #a7a7a7;
+}
+.table-container {
+  width: 85%;
+  background: rgba(255, 255, 255, 0.8);
+
+  display: grid;
+  grid-template: 63% 1fr / 2fr 1.8fr 1fr;
+  
+}
+.table-header {
+  padding-bottom: 7%;
+  grid-area: 1 / auto;
+}
+.file-name {
+  padding: 0 3%;
+}
+.table-content {
+  background: rgb(249, 249, 249);
+  grid-area: 2 / 1 / 2 / span 3;
 }
 
 /* @media (max-width: 768px) {

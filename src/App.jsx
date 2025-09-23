@@ -6,6 +6,7 @@ import Signin from './pages/Signin'
 import Profile from './pages/Profile'
 import CreateStudy from './pages/CreateStudy'
 import Settings from './pages/Settings'
+import Dashboard from './pages/Dashboard'
 import './App.css'
 
 const App = () => {
@@ -19,6 +20,7 @@ const App = () => {
         <Route path='/profile' element={<Profile />} />
         <Route path='/create-study' element={<CreateStudy />} />
         <Route path='/settings' element={<Settings />} />
+        <Route path='/dashboard' element={<Dashboard />} />
       </Routes>
     </>
   )
