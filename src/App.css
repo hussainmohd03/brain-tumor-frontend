@@ -318,6 +318,55 @@ body {
   grid-area: 2 / 2 / 2 / span 3;
   font-family: 'oracle sans';
 }
+.starting{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 80%;
+  width: 90%;
+  gap: 4%;
+}
+.image-container{
+  background: url('/images/create-study-img.svg');
+  height: 37vmin;
+  width: 91.2vmin;
+  background-size: cover;
+}
+.create-study-title {
+  font-size: 66px;
+  color: var(--main-color);
+}
+#bar-img {
+  padding-top: 2%;
+}
+.image-overlay {
+  display: flex;
+  flex-direction: column;
+  color: white;
+  padding: 9% 4%;
+  gap: 1%;
+  height: 100%;
+}
+.image-overlay p {
+  font-size: 26px;
+  width: 70%;
+  margin: 0;
+}
+.image-overlay h3 {
+  font-size: 38px;
+  margin: 0;
+}
+.uncover-button {
+  border: 1px solid white;
+  background-color: transparent;
+  border-radius: 7px;
+  padding:1.5%;
+  width: 20%;
+  color: white;
+  font-size: 14.5px;
+  margin-top: 2%;
+  font-family: 'oracle sans';
+}
 .settings-content {
   grid-area: 2/2 /2 / span 3;
   margin: 2% 3.5%;
@@ -459,7 +508,6 @@ body {
 
   display: grid;
   grid-template: 63% 1fr / 2fr 1.8fr 1fr;
-  
 }
 .table-header {
   padding-bottom: 7%;
