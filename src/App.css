@@ -328,12 +328,12 @@ body {
 }
 .image-container{
   background: url('/images/create-study-img.svg');
-  height: 37vmin;
-  width: 91.2vmin;
+  height: 37.1vmin;
+  width: 91.3vmin;
   background-size: cover;
 }
 .create-study-title {
-  font-size: 66px;
+  font-size: 67.5px;
   color: var(--main-color);
 }
 #bar-img {
