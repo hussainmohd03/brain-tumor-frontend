@@ -318,7 +318,7 @@ body {
   grid-area: 2 / 2 / 2 / span 3;
   font-family: 'oracle sans';
 }
-.starting{
+.starting-container {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -348,12 +348,12 @@ body {
   height: 100%;
 }
 .image-overlay p {
-  font-size: 26px;
-  width: 70%;
+  font-size: 23px;
+  width: 65%;
   margin: 0;
 }
 .image-overlay h3 {
-  font-size: 38px;
+  font-size: 36px;
   margin: 0;
 }
 .uncover-button {
@@ -366,6 +366,45 @@ body {
   font-size: 14.5px;
   margin-top: 2%;
   font-family: 'oracle sans';
+  cursor: pointer;
+}
+.study-form {
+  margin: 6% 15%;
+}
+.study-form h1 {
+  margin: 0;
+  font-size: 67px;
+  font-weight: 900;
+}
+.create-study-subtitle{
+  margin: 0;
+  font-size: 44px;
+  color: var(--main-color);
+  font-weight: 300;
+  margin-bottom: 3%;
+}
+.create-study-input,.create-study-hr {
+  width: 70%;
+}
+.create-study-input {
+  border-color: #93acb4;
+}
+.create-study-input label {
+  font-size: 20px;
+  margin-top: -1.5%;
+}
+.create-study-hr {
+  margin-left: 0;
+  border-color: #d9dedf;
+}
+.create-study-input input {
+  width: 100%;
+} 
+.create-study-button {
+  padding: 1.5%;
+  width: 11%;
+  font-family: 'oracle sans';
+  font-size: 18px;
 }
 .settings-content {
   grid-area: 2/2 /2 / span 3;
