@@ -1,7 +1,7 @@
-const StudyStep1 = ({ formData, handleChange }) => {
+const StudyStep2 = ({ formData, handleChange }) => {
   return (
     <>
-      <h3 className="create-study-subtitle">Fill in the following fields</h3>
+      <h3 className="create-study-subtitle">Upload your scan</h3>
       <div className="input-field profile-edit create-study-input">
         <label htmlFor="NHRA-License">NHRA License No*</label>
         <div className="edit-field">
@@ -11,7 +11,7 @@ const StudyStep1 = ({ formData, handleChange }) => {
             name="nhraLicense"
             value={formData.nhraLicense}
             onChange={handleChange}
-            required
+            
           />
         </div>
       </div>
@@ -25,7 +25,6 @@ const StudyStep1 = ({ formData, handleChange }) => {
             name="patientId"
             value={formData.patientId}
             onChange={handleChange}
-            required
           />
         </div>
       </div>
@@ -38,11 +37,11 @@ const StudyStep1 = ({ formData, handleChange }) => {
             name="dateTime"
             value={formData.dateTime}
             onChange={handleChange}
-            required
           />
         </div>
       </div>
     </>
   )
 }
-export default StudyStep1
+
+export default StudyStep2
