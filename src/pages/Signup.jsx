@@ -25,23 +25,35 @@ const Signup = () => {
     })
   }
 
+  const validatePassword = () => {
+    const hasNumber = /\d/.test(formData.password)
+    const hasSpecial = /[&@#%]/.test(formData.password)
+    const hasMinLength = pwd.length >= 8
+    const passwordsMatch = formData.password === formData.confirmPassword
+
+    return hasNumber && hasSpecial && hasMinLength && passwordsMatch
+  }
+
   const handleSubmit = (e) => {
     e.preventDefault()
     if (!next) {
       setNext(true)
       return
     }
-    const userData = {
-      fullName: formData.fullName,
-      email: formData.email,
-      institution: formData.institution,
-      nhra: formData.nhra,
-      password: formData.password,
-      checked: formData.checked
+    if (validatePassword && formData.checked) {
+      const userData = {
+        fullName: formData.fullName,
+        email: formData.email,
+        institution: formData.institution,
+        nhra: formData.nhra,
+        password: formData.password,
+        checked: formData.checked
+      }
+
+      console.log(userData)
+      setNext(false)
+      navigate('/signin')
     }
-    console.log(userData)
-    setNext(false)
-    navigate('/signin')
   }
 
   return (

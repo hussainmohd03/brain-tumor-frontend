@@ -56,40 +56,41 @@ body {
 }
 
 .page-content h2 {
-  font-size: 39px;
+  font-size: 52px;
   font-weight: 300;
 }
 .page-content h1 {
-  font-size: 63px;
+  font-size: 91px;
 }
 .page-content p {
-  font-size: 25px;
+  font-size: 47px;
   font-weight: 150;
-  line-height: 35px;
+  line-height: 55px;
   width: 78%;
 }
 .page-content button {
   margin-top: 30px;
-  padding: 20px 25px;
-  font-size: 20px;
+  padding: 30px 45px;
+  font-size: 30px;
   background-color: white;
   color: black;
   border: none;
-  border-radius: 8px;
+  border-radius: 15px;
   cursor: pointer;
   font-weight: 600;
   font-family: 'oracle sans';
 }
 
 #signup-title {
-  font-size: 35px;
+  font-size: 59px;
   font-weight: 200;
 }
 .signup-content {
   margin-top: -5%;
 }
 #signup-header {
-  font-size: 45px;
+  font-size: 80px;
+  margin-bottom: 4%;
 }
 
 .input-field {
@@ -98,11 +99,12 @@ body {
 }
 .input-field input {
   position: relative;
+  font-size: 20px;
   padding: 2%;
   width: 58%;
   background-color: transparent;
   border: 1px solid var(--text-light-white);
-  border-radius: 8px;
+  border-radius: 13px;
   caret-color: var(--text-light-white);
   margin-top: 0.7%;
   color: var(--text-light-white);
@@ -118,15 +120,17 @@ body {
   color: white;
   background-color: #07495f;
   padding: 0 0.5%;
+  font-size: 25px;
   margin-left: 1%;
 }
 
 .signup-button {
   width: 62%;
+  margin-top: 10%;
 }
 #login-prompt {
-  font-size: 18px;
-  margin: 3% 20%;
+  font-size: 25px;
+  margin: 3% 22.5%;
 }
 #login-prompt a {
   color: #f1efed;
@@ -141,8 +145,8 @@ body {
 }
 .input-checkbox input {
   appearance: none;
-  width: 37px;
-  height: 37px;
+  width: 55px;
+  height: 55px;
   border: 1px solid var(--checkbox-color);
   border-radius: 7px;
   background-color: var(--checkbox-unchecked);
@@ -155,10 +159,10 @@ body {
   background-color: var(--checkbox-color);
 }
 .input-checkbox label {
-  font-size: 17px;
+  font-size: 30px;
   font-weight: 300;
-  width: 48%;
-  line-height: 25px;
+  width: 55%;
+  line-height: 37px;
 }
 .input-checkbox span {
   text-decoration: underline;
@@ -172,9 +176,9 @@ body {
 }
 .password-instructions p {
   margin: 0;
-  font-size: 13px;
+  font-size: 20px;
   font-weight: 200;
-  line-height: 18px;
+  line-height: 25px;
 }
 
 .main-container {
@@ -194,6 +198,13 @@ body {
   justify-content: space-between;
   padding: 0 2%;
 }
+.oracle-logo-small {
+  height: 60%;
+}
+.bell-icon {
+  height: 40%;
+  cursor: pointer;
+}
 .sidebar {
   grid-area: 2 / 1;
   display: flex;
@@ -210,6 +221,10 @@ body {
   align-items: center;
   justify-content: space-around;
 }
+.nav-links img {
+  width: 130%;
+}
+
 .bottom-navlinks {
   width: 100%;
   height: 15%;
@@ -218,6 +233,12 @@ body {
   align-items: center;
   gap: 20%;
   margin-top: auto;
+}
+.bottom-navlinks img {
+  width: 20%;
+}
+#logout-btn {
+  width: 130%;
 }
 .profile-right {
   grid-area: 2 / 3;
@@ -269,6 +290,10 @@ body {
   display: flex;
   justify-content: space-between;
   align-items: center;
+}
+.edit-field input {
+  color: #c1bfbe;
+  font-size: 20px;
 }
 .edit-field p {
   padding: 0 2%;
@@ -326,7 +351,7 @@ body {
   width: 90%;
   gap: 4%;
 }
-.image-container{
+.image-container {
   background: url('/images/create-study-img.svg');
   height: 37.1vmin;
   width: 91.3vmin;
@@ -335,6 +360,7 @@ body {
 .create-study-title {
   font-size: 67.5px;
   color: var(--main-color);
+  font-weight: 600;
 }
 #bar-img {
   padding-top: 2%;
@@ -360,7 +386,7 @@ body {
   border: 1px solid white;
   background-color: transparent;
   border-radius: 7px;
-  padding:1.5%;
+  padding: 1.5%;
   width: 20%;
   color: white;
   font-size: 14.5px;
@@ -376,15 +402,16 @@ body {
   font-size: 67px;
   font-weight: 900;
 }
-.create-study-subtitle{
+.create-study-subtitle {
   margin: 0;
   font-size: 44px;
   color: var(--main-color);
   font-weight: 300;
   margin-bottom: 3%;
 }
-.create-study-input,.create-study-hr {
-  width: 70%;
+.create-study-input,
+.create-study-hr {
+  width: 60.5%;
 }
 .create-study-input {
   border-color: #93acb4;
@@ -399,12 +426,13 @@ body {
 }
 .create-study-input input {
   width: 100%;
-} 
+}
 .create-study-button {
   padding: 1.5%;
-  width: 11%;
+  width: 8.5%;
   font-family: 'oracle sans';
-  font-size: 18px;
+  font-size: 21px;
+  border-radius: 12px;
 }
 .settings-content {
   grid-area: 2/2 /2 / span 3;
@@ -417,7 +445,7 @@ body {
 }
 .page-subtitle {
   margin: 0;
-  font-size: 22px;
+  font-size: 25px;
   color: var(--sub-title-color);
   margin-bottom: 1.5%;
 }
@@ -428,14 +456,14 @@ body {
 .auth-description {
   color: #7a7a7a;
   margin-top: 0.5%;
-  font-size: 20px;
-  width: 75%;
+  font-size: 25px;
+  width: 72%;
 }
 .auth-button {
   align-self: flex-start;
-  padding: 0.9%;
-  width: 11%;
-  font-size: 14px;
+  padding: 0.6%;
+  width: 8%;
+  font-size: 16px;
   border-radius: 9px;
   background-color: var(--main-color);
 }
@@ -529,7 +557,7 @@ body {
 .button-container {
   display: flex;
   gap: 2%;
-  margin-top: 14%;
+  margin: auto 0;
 }
 .button-container button {
   width: 13%;
@@ -558,6 +586,67 @@ body {
 .table-content {
   background: rgb(249, 249, 249);
   grid-area: 2 / 1 / 2 / span 3;
+}
+.upload-scan-container {
+  border: 4px dashed #c8c8c8;
+  border-radius: 75px;
+  padding: 50px 120px;
+  text-align: center;
+  width: 46%;
+  cursor: pointer;
+  transition: 0.2s ease;
+  margin-bottom: 2%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.upload-title {
+  font-size: 34px;
+  font-weight: 400;
+  margin: 0;
+}
+.upload-subtitle {
+  font-size: 30px;
+  font-weight: 600;
+  margin: 0;
+  margin-top: 1%;
+  color: #797877;
+}
+.upload-scan-container img {
+  width: 100px;
+  height: 100px;
+  margin-bottom: 2%;
+  margin-top: -3%;
+}
+
+.upload-btn {
+  display: inline-block;
+  padding: 12px 36px;
+  background: transparent;
+  border: 2px solid #cbd0dc;
+  border-radius: 10px;
+  cursor: pointer;
+  font-size: 23px;
+  color: #54575c;
+  margin-top: 4%;
+}
+.step-progress {
+  display: flex;
+  gap: 16px;
+  margin-top: 6%;
+}
+
+.step {
+  height: 4px;
+  border-radius: 4px;
+  background-color: #d6d6d6;
+  width: 29.8%;
+  transition: background-color 0.3s ease;
+}
+
+.step.active {
+  background-color: #00688c;
 }
 
 /* @media (max-width: 768px) {

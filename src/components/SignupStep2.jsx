@@ -1,5 +1,12 @@
-import Terms from "./terms"
+import Terms from './terms'
+
 const SignupStep2 = ({ formData, handleChange }) => {
+  const hasNumber = /\d/.test(formData.password)
+  const hasSpecial = /[^A-Za-z0-9]/.test(formData.password)
+  const hasMinLength = formData.password.length >= 8
+  const passwordsMatch =
+    formData.password === formData.confirmPassword && formData.password !== ''
+
   return (
     <>
       <div className="input-field">
@@ -23,9 +30,10 @@ const SignupStep2 = ({ formData, handleChange }) => {
         />
       </div>
       <div className="password-instructions">
-        <p>Include special characters (e.g. &, #, @, %).</p>
-        <p>Keep it longer than 8 characters.</p>
-        <p>Include a number.</p>
+        <p>{hasSpecial ? '✔' : ''} Include a special character (&, @, #, %)</p>
+        <p>{hasMinLength ? '✔' : ''} At least 8 characters</p>
+        <p>{hasNumber ? '✔' : ''} Include at least one number</p>
+        <p>{passwordsMatch ? '✔' : ''} Passwords match</p>
       </div>
       <Terms formData={formData} handleChange={handleChange} />
     </>

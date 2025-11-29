@@ -12,6 +12,7 @@ const StudyStep1 = ({ formData, handleChange }) => {
             value={formData.nhraLicense}
             onChange={handleChange}
             required
+            readOnly
           />
         </div>
       </div>

@@ -23,7 +23,7 @@ const Sidebar = () => {
         </div>
         <div className="bottom-navlinks">
           <NavLink to="">
-            <img src="/icons/logout-icon.svg" alt="logout" />
+            <img src="/icons/logout-icon.svg" alt="logout" id='logout-btn'/>
           </NavLink>
           <img src="/icons/oracle-health-icon.svg" alt="oracle health logo" />
         </div>

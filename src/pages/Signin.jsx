@@ -21,13 +21,16 @@ const Signin = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault()
-    const userData = {
-      email: formData.email,
-      password: formData.password,
-      checked: formData.checked
+
+    if (formData.checked) {
+      const userData = {
+        email: formData.email,
+        password: formData.password,
+        checked: formData.checked
+      }
+      console.log(userData)
+      navigate('/dashboard')
     }
-    console.log(userData)
-    navigate('/dashboard')
   }
 
   return (

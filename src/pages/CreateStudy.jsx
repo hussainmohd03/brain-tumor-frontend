@@ -12,6 +12,7 @@ const CreateStudy = () => {
     patientId: '',
     dateTime: ''
   })
+  const [scans, setScans] = useState([])
 
   const handleChange = (e) => {
     const { name, value } = e.target
@@ -21,18 +22,20 @@ const CreateStudy = () => {
     })
   }
 
+
   const handleSubmit = (e) => {
     e.preventDefault()
     if (!next) {
       setNext(true)
       return
     }
-    const userData = {
-      nhraLicense: formData.nhraLicense,
-      patientId: formData.patientId,
-      dateTime: formData.dateTime
-    }
-    console.log(userData)
+    const userData = new FormData()
+    userData.append('patientId', formData.patientId)
+    scans.forEach((scan) => {
+      userData.append('scans', scan)
+    })
+
+    // send data to back end
     setNext(false)
     navigate('/dashboard')
   }
@@ -54,17 +57,19 @@ const CreateStudy = () => {
                         formData={formData}
                         handleChange={handleChange}
                       />
-                    )) || (
-                      <StudyStep2
-                        formData={formData}
-                        handleChange={handleChange}
-                      />
-                    )}
+                    )) || <StudyStep2 scans={scans} setScans={setScans} />}
 
-                    <button className="save-button create-study-button" type="submit">
+                    <button
+                      className="save-button create-study-button"
+                      type="submit"
+                    >
                       {!next ? 'Continue' : 'submit'}
                     </button>
                   </form>
+                </div>
+                <div className="step-progress">
+                  <div className={`step ${!next ? 'active' : ''}`}></div>
+                  <div className={`step ${next ? 'active' : ''}`}></div>
                 </div>
               </div>
             </>
