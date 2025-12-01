@@ -1,5 +1,5 @@
-import { BASE_URL } from '../globals'
 import axios from 'axios'
+import { BASE_URL } from '../globals'
 
 const Client = axios.create({
   baseURL: BASE_URL,
@@ -7,7 +7,7 @@ const Client = axios.create({
 })
 
 const refreshAccessToken = async () => {
-  await Client.post('/api/auth/refresh', {}, { withCredentials: true })
+  return Client.post('/api/auth/refresh')
 }
 
 let isRefreshing = false
@@ -15,39 +15,38 @@ let refreshPromise = null
 
 Client.interceptors.response.use(
   (res) => res,
-  async (error) => {
-    const originalRequest = error.config
-    const noRefreshEndpoints = [
-      '/api/auth/login',
-      '/api/auth/register',
-      '/api/auth/logout',
-      '/api/auth/verify-email'
-    ]
 
-    if (noRefreshEndpoints.some((e) => originalRequest.url.includes(e))) {
+  async (error) => {
+    if (!error.response) return Promise.reject(error)
+
+    const originalRequest = error.config
+
+    if (originalRequest.url.includes('/api/auth/refresh')) {
       return Promise.reject(error)
     }
-    if (!error.response) return Promise.reject(error)
 
     if (error.response.status === 401 && !originalRequest._retry) {
       originalRequest._retry = true
+
       if (isRefreshing) {
-        await refreshAccessToken()
+        await refreshPromise
         return Client(originalRequest)
       }
+
       isRefreshing = true
       refreshPromise = refreshAccessToken()
 
       try {
         await refreshPromise
         return Client(originalRequest)
-      } catch (error) {
-        return Promise.reject(error)
+      } catch (e) {
+        return Promise.reject(e)
       } finally {
         isRefreshing = false
         refreshPromise = null
       }
     }
+
     return Promise.reject(error)
   }
 )

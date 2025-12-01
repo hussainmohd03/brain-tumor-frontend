@@ -9,14 +9,14 @@ export const AuthProvider = ({ children }) => {
 
   const [user, setUser] = useState(null)
   const [loading, setLoading] = useState(true)
-  const [authLoading, setAuthLoading] = useState(true)
+  const [authLoading, setAuthLoading] = useState(false)
 
   useEffect(() => {
     const loadUser = async () => {
       try {
-        const res = await Client.get('/api/user/')
-        setUser(res.data)
-      } catch (error) {
+        const res = await Client.get('/api/user')
+        setUser(res.data.user)
+      } catch {
         setUser(null)
       } finally {
         setLoading(false)
@@ -29,9 +29,12 @@ export const AuthProvider = ({ children }) => {
   const login = async ({ email, password }) => {
     try {
       setAuthLoading(true)
+
       await Client.post('/api/auth/login', { email, password })
-      const res = await Client.get('/api/user/')
-      setUser(res.data)
+
+      const res = await Client.get('/api/user')
+      setUser(res.data.user)
+
       navigate('/dashboard')
     } catch (error) {
       throw error
@@ -43,11 +46,10 @@ export const AuthProvider = ({ children }) => {
   const signup = async (formData) => {
     try {
       setAuthLoading(true)
-      console.log(formData)
-      const res = await Client.post('/api/auth/register', formData)
-      console.log(res)
-      setUser(res.data)
-      navigate('/login')
+
+      await Client.post('/api/auth/register', formData)
+
+      navigate('/signin')
     } catch (error) {
       throw error
     } finally {
@@ -58,8 +60,6 @@ export const AuthProvider = ({ children }) => {
   const logout = async () => {
     try {
       await Client.post('/api/auth/logout')
-    } catch (error) {
-      throw error
     } finally {
       setUser(null)
       navigate('/signin')
