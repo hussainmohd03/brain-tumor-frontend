@@ -7,7 +7,7 @@ const Client = axios.create({
 })
 
 const refreshAccessToken = async () => {
-  return Client.post('/api/auth/refresh')
+  return await Client.post('/api/auth/refresh')
 }
 
 let isRefreshing = false

@@ -1,7 +1,7 @@
 import { useNavigate } from 'react-router-dom'
 import OracleLogo from '../components/OracleLogo'
-
 const Landing = () => {
+  const navigate = useNavigate()
   return (
     <>
       <main className="page-container">
@@ -13,7 +13,8 @@ const Landing = () => {
             Reimagine the future of health with an automated, secure machine
             learning platform fostering the greatness of accuracy
           </p>
-          <button>Explore OHP</button>
+
+          <button onClick={() => navigate('/dashboard')}>Explore OHP</button>
         </section>
         <section className="landing-page-right-img">
           <img

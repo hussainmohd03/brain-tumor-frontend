@@ -66,6 +66,22 @@ export const AuthProvider = ({ children }) => {
     }
   }
 
+  const sendResetLink = async (email) => {
+    try {
+      await Client.post('/api/auth/forget-password', email)
+    } catch (error) {
+      console.error({ msg: 'error in sending reset link', error })
+    }
+  }
+  const ResetPassword = async (formData) => {
+    try {
+      await Client.post('/api/auth/reset-password', formData)
+      navigate('/dashboard')
+    } catch (error) {
+      console.error({ msg: 'error in sending reset link', error })
+    }
+  }
+
   return (
     <AuthContext.Provider
       value={{
@@ -75,7 +91,9 @@ export const AuthProvider = ({ children }) => {
         login,
         signup,
         logout,
-        setUser
+        setUser,
+        sendResetLink,
+        ResetPassword
       }}
     >
       {children}

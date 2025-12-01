@@ -648,7 +648,21 @@ body {
 .step.active {
   background-color: #00688c;
 }
-
+#forget-password {
+  margin: 0;
+}
+#forget-password-link {
+  margin: 0;
+  font-size: 17px;
+  color: white;
+}
+#Reset-link-msg {
+  font-size: 25px;
+}
+.reset-btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
 /* @media (max-width: 768px) {
   .page-container {
     grid-template: 20% 60% 1fr / 1fr;

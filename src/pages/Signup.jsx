@@ -1,13 +1,19 @@
 import OracleLogo from '../components/OracleLogo'
 import { useNavigate } from 'react-router-dom'
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import SignupStep1 from '../components/SignupStep1'
 import SignupStep2 from '../components/SignupStep2'
 import { useAuth } from '../context/AuthContext'
 
 const Signup = () => {
-  const { signup } = useAuth()
+  const { signup, user } = useAuth()
+  const navigate = useNavigate()
 
+  useEffect(() => {
+    if (user) {
+      navigate('/dashboard')
+    }
+  }, [user])
   const [next, setNext] = useState(false)
   const [formData, setFormData] = useState({
     fullName: '',
@@ -29,14 +35,15 @@ const Signup = () => {
 
   const validatePassword = () => {
     const hasNumber = /\d/.test(formData.password)
-    const hasSpecial = /[&@#%]/.test(formData.password)
-    const hasMinLength = pwd.length >= 8
-    const passwordsMatch = formData.password === formData.confirmPassword
+    const hasSpecial = /[^A-Za-z0-9]/.test(formData.password)
+    const hasMinLength = formData.password.length >= 8
+    const passwordsMatch =
+      formData.password === formData.confirmPassword && formData.password !== ''
 
     return hasNumber && hasSpecial && hasMinLength && passwordsMatch
   }
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault()
     if (!next) {
       setNext(true)
@@ -51,7 +58,7 @@ const Signup = () => {
         password: formData.password,
         confirmPassword: formData.confirmPassword
       }
-      signup(userData)
+      await signup(userData)
     }
   }
 

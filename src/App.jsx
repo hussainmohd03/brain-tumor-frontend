@@ -7,8 +7,10 @@ import Profile from './pages/Profile'
 import CreateStudy from './pages/CreateStudy'
 import Settings from './pages/Settings'
 import Dashboard from './pages/Dashboard'
-import './App.css'
 import VerifyEmail from './pages/VerifyEmail'
+import ForgetPassword from './pages/ForgetPassword'
+import ResetPassword from './pages/ResetPassword'
+import './App.css'
 
 const App = () => {
   const navigate = useNavigate()
@@ -23,6 +25,8 @@ const App = () => {
         <Route path="/settings" element={<Settings />} />
         <Route path="/dashboard" element={<Dashboard />} />
         <Route path="/verify-email" element={<VerifyEmail />} />
+        <Route path="/forget-password" element={<ForgetPassword />} />
+        <Route path="/reset-password" element={<ResetPassword />} />
       </Routes>
     </>
   )
