@@ -7,7 +7,7 @@ const Client = axios.create({
 })
 
 const refreshAccessToken = async () => {
-  await Client.post('/auth/refresh')
+  await Client.post('/api/auth/refresh', {}, { withCredentials: true })
 }
 
 let isRefreshing = false
@@ -16,9 +16,18 @@ let refreshPromise = null
 Client.interceptors.response.use(
   (res) => res,
   async (error) => {
-    if (!error.response) return Promise.reject(error)
-
     const originalRequest = error.config
+    const noRefreshEndpoints = [
+      '/api/auth/login',
+      '/api/auth/register',
+      '/api/auth/logout',
+      '/api/auth/verify-email'
+    ]
+
+    if (noRefreshEndpoints.some((e) => originalRequest.url.includes(e))) {
+      return Promise.reject(error)
+    }
+    if (!error.response) return Promise.reject(error)
 
     if (error.response.status === 401 && !originalRequest._retry) {
       originalRequest._retry = true

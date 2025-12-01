@@ -43,8 +43,9 @@ export const AuthProvider = ({ children }) => {
   const signup = async (formData) => {
     try {
       setAuthLoading(true)
-      await Client.post('/api/auth/register', { email, password })
-      const res = await Client.get('/api/user/')
+      console.log(formData)
+      const res = await Client.post('/api/auth/register', formData)
+      console.log(res)
       setUser(res.data)
       navigate('/login')
     } catch (error) {

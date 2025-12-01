@@ -3,9 +3,11 @@ import { useNavigate } from 'react-router-dom'
 import { useState } from 'react'
 import SignupStep1 from '../components/SignupStep1'
 import SignupStep2 from '../components/SignupStep2'
+import { useAuth } from '../context/AuthContext'
 
 const Signup = () => {
-  const navigate = useNavigate()
+  const { signup } = useAuth()
+
   const [next, setNext] = useState(false)
   const [formData, setFormData] = useState({
     fullName: '',
@@ -44,15 +46,12 @@ const Signup = () => {
       const userData = {
         fullName: formData.fullName,
         email: formData.email,
-        institution: formData.institution,
-        nhra: formData.nhra,
+        Institution: formData.institution,
+        nhra: Number(formData.nhra),
         password: formData.password,
-        checked: formData.checked
+        confirmPassword: formData.confirmPassword
       }
-
-      console.log(userData)
-      setNext(false)
-      navigate('/signin')
+      signup(userData)
     }
   }
 

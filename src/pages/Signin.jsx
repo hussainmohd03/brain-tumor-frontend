@@ -3,8 +3,9 @@ import { useNavigate } from 'react-router-dom'
 import { useState } from 'react'
 import Terms from '../components/terms'
 import SigninForm from '../components/SigninForm'
+import { useAuth } from '../context/AuthContext'
 const Signin = () => {
-  const navigate = useNavigate()
+  const { login } = useAuth()
   const [formData, setFormData] = useState({
     email: '',
     password: '',
@@ -25,11 +26,9 @@ const Signin = () => {
     if (formData.checked) {
       const userData = {
         email: formData.email,
-        password: formData.password,
-        checked: formData.checked
+        password: formData.password
       }
-      console.log(userData)
-      navigate('/dashboard')
+      login(userData)
     }
   }
 
