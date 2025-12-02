@@ -15,8 +15,10 @@ const ForgetPassword = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault()
-    await sendResetLink(formData)
-    setEmailSent(true)
+    const res = await sendResetLink(formData)
+    if (res.status === 200) {
+      setEmailSent(true)
+    }
   }
   return (
     <>

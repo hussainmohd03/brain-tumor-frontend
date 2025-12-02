@@ -4,23 +4,6 @@ import Sidebar from '../components/Sidebar'
 import ProfileForm from '../components/ProfileForm'
 
 const Profile = () => {
-  const [editingField, setEditingField] = useState(null)
-
-  const [profile, setProfile] = useState({
-    nhraLicense: 'NHRA-123456',
-    nhraHolderName: 'Hussain Ahmed',
-    nhraHolderEmail: 'hussain@example.com'
-  })
-
-  const handleChange = (e) => {
-    setProfile({ ...profile, [e.target.name]: e.target.value })
-  }
-
-  const handleSave = () => {
-    setEditingField(null)
-    // API call
-  }
-
   return (
     <>
       <main className="main-container">
@@ -43,18 +26,8 @@ const Profile = () => {
         <section className="profile-left">
           <h1 className="page-title">Profile</h1>
           <form>
-            <ProfileForm
-              profile={profile}
-              editingField={editingField}
-              handleChange={handleChange}
-              setEditingField={setEditingField}
-            />
+            <ProfileForm />
           </form>
-          {editingField && (
-            <button className="save-button" onClick={handleSave}>
-              Save
-            </button>
-          )}
         </section>
         <img src="/logos/oracle-logo.svg" alt="Oracle Logo" id="oracle-logo" />
       </main>

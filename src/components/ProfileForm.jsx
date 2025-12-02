@@ -1,9 +1,8 @@
-const ProfileForm = ({
-  profile,
-  editingField,
-  handleChange,
-  setEditingField
-}) => {
+import { useAuth } from '../context/AuthContext'
+
+const ProfileForm = () => {
+  const { user } = useAuth()
+
   return (
     <>
       <div className="input-field profile-edit">
@@ -13,8 +12,8 @@ const ProfileForm = ({
             type="text"
             id="NHRA-License"
             name="nhraLicense"
-            value={profile.nhraLicense}
             readOnly
+            value={`NHRA-${user?.nhra}`}
           />
         </div>
       </div>
@@ -26,9 +25,7 @@ const ProfileForm = ({
             type="text"
             id="NHRA-Holder-Name"
             name="nhraHolderName"
-            value={profile.nhraHolderName}
-            readOnly={editingField !== 'nhraHolderName'}
-            onChange={handleChange}
+            value={user?.fullName}
           />
         </div>
       </div>
@@ -39,9 +36,7 @@ const ProfileForm = ({
             type="email"
             id="NHRA-Holder-Email"
             name="nhraHolderEmail"
-            value={profile.nhraHolderEmail}
-            readOnly={editingField !== 'nhraHolderEmail'}
-            onChange={handleChange}
+            value={user?.email}
           />
         </div>
       </div>

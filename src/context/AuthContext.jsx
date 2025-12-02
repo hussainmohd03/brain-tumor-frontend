@@ -6,7 +6,6 @@ const AuthContext = createContext(null)
 
 export const AuthProvider = ({ children }) => {
   const navigate = useNavigate()
-
   const [user, setUser] = useState(null)
   const [loading, setLoading] = useState(true)
   const [authLoading, setAuthLoading] = useState(false)
@@ -68,7 +67,7 @@ export const AuthProvider = ({ children }) => {
 
   const sendResetLink = async (email) => {
     try {
-      await Client.post('/api/auth/forget-password', email)
+      return await Client.post('/api/auth/forget-password', email)
     } catch (error) {
       console.error({ msg: 'error in sending reset link', error })
     }

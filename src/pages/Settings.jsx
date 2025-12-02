@@ -1,8 +1,10 @@
 import Header from '../components/Header'
 import Sidebar from '../components/Sidebar'
 import SettingsToggleBtns from '../components/SettingsToggleBtns'
+import { useUser } from '../context/UserContext'
 
 const Settings = () => {
+  const { clearData, deleteAccount } = useUser()
   return (
     <>
       <main className="main-container">
@@ -20,10 +22,16 @@ const Settings = () => {
           <button className="save-button auth-button">View Backup Codes</button>
           <SettingsToggleBtns />
           <div className="button-container">
-            <button className="delete-button save-button auth-button">
+            <button
+              className="delete-button save-button auth-button"
+              onClick={deleteAccount}
+            >
               Delete Account
             </button>
-            <button className="clear-button save-button auth-button">
+            <button
+              className="clear-button save-button auth-button"
+              onClick={clearData}
+            >
               Clear Data
             </button>
           </div>
