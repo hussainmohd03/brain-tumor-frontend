@@ -11,11 +11,12 @@ import VerifyEmail from './pages/VerifyEmail'
 import ForgetPassword from './pages/ForgetPassword'
 import ResetPassword from './pages/ResetPassword'
 import './App.css'
-
+import { ToastContainer } from 'react-toastify'
 const App = () => {
   const navigate = useNavigate()
   return (
     <>
+      <ToastContainer newestOnTop />
       <Routes>
         <Route path="/" element={<Landing />} />
         <Route path="/signup" element={<Signup />} />

@@ -1,10 +1,16 @@
 import { useState } from 'react'
+import { useNavigate } from 'react-router-dom'
 import Header from '../components/Header'
 import Sidebar from '../components/Sidebar'
 import StartStudy from '../components/StartStudy'
 import StudyStep1 from '../components/StudyStep1'
 import StudyStep2 from '../components/StudyStep2'
+import { useStudy } from '../context/StudyContext'
+import { useAuth } from '../context/AuthContext'
 const CreateStudy = () => {
+  const navigate = useNavigate()
+  const { user } = useAuth()
+  const { createStudy } = useStudy()
   const [starting, setStarting] = useState(true)
   const [next, setNext] = useState(false)
   const [formData, setFormData] = useState({
@@ -22,20 +28,20 @@ const CreateStudy = () => {
     })
   }
 
-
   const handleSubmit = (e) => {
     e.preventDefault()
     if (!next) {
       setNext(true)
       return
     }
-    const userData = new FormData()
-    userData.append('patientId', formData.patientId)
+    const studyData = new FormData()
+    studyData.append('patientId', formData.patientId)
     scans.forEach((scan) => {
-      userData.append('scans', scan)
+      studyData.append('scans', scan)
     })
 
     // send data to back end
+    createStudy(studyData)
     setNext(false)
     navigate('/dashboard')
   }
@@ -56,6 +62,7 @@ const CreateStudy = () => {
                       <StudyStep1
                         formData={formData}
                         handleChange={handleChange}
+                        user={user}
                       />
                     )) || <StudyStep2 scans={scans} setScans={setScans} />}
 

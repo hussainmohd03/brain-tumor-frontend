@@ -1,4 +1,6 @@
-const StudyStep1 = ({ formData, handleChange }) => {
+const StudyStep1 = ({ formData, handleChange, user }) => {
+  const today = new Date()
+
   return (
     <>
       <h3 className="create-study-subtitle">Fill in the following fields</h3>
@@ -9,8 +11,7 @@ const StudyStep1 = ({ formData, handleChange }) => {
             type="text"
             id="NHRA-License"
             name="nhraLicense"
-            value={formData.nhraLicense}
-            onChange={handleChange}
+            value={`NHRA-${user?.nhra}`}
             required
             readOnly
           />
@@ -37,8 +38,7 @@ const StudyStep1 = ({ formData, handleChange }) => {
             type="text"
             id="Date-Time"
             name="dateTime"
-            value={formData.dateTime}
-            onChange={handleChange}
+            value={today.toDateString()}
             required
           />
         </div>

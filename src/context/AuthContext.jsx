@@ -1,6 +1,9 @@
 import { createContext, useContext, useState, useEffect } from 'react'
 import Client from '../../services/api'
+import { createSocket } from '../realtime/socket'
 import { useNavigate } from 'react-router-dom'
+import { toast } from 'react-toastify'
+import OracleToast from '../components/OracleToast'
 
 const AuthContext = createContext(null)
 
@@ -9,6 +12,27 @@ export const AuthProvider = ({ children }) => {
   const [user, setUser] = useState(null)
   const [loading, setLoading] = useState(true)
   const [authLoading, setAuthLoading] = useState(false)
+  const [socket, setSocket] = useState(null)
+
+  useEffect(() => {
+    if (!user) return
+    const socket = createSocket()
+    setSocket(socket)
+
+    socket.on('Notification', (notif) => {
+      toast.info(<OracleToast message={notif.message} />, {
+        position: 'top-right',
+        autoClose: 500,
+        closeButton: false,
+        hideProgressBar: true,
+        draggable: false
+      })
+    })
+
+    return () => {
+      socket.disconnect()
+    }
+  }, [user])
 
   useEffect(() => {
     const loadUser = async () => {
@@ -60,6 +84,7 @@ export const AuthProvider = ({ children }) => {
     try {
       await Client.post('/api/auth/logout')
     } finally {
+      if (socket) socket.disconnect()
       setUser(null)
       navigate('/signin')
     }

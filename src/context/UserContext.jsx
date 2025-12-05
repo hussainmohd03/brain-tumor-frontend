@@ -9,21 +9,6 @@ export const UserProvider = ({ children }) => {
   const { logout } = useAuth()
   const navigate = useNavigate()
 
-  // useEffect(() => {
-  //   const loadUser = async () => {
-  //     try {
-  //       const res = await Client.get('/api/user')
-  //       setUser(res.data.user)
-  //     } catch {
-  //       setUser(null)
-  //     } finally {
-  //       setLoading(false)
-  //     }
-  //   }
-
-  //   loadUser()
-  // }, [])
-
   const clearData = async () => {
     try {
       await Client.delete('/api/user/data')
