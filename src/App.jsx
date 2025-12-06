@@ -16,7 +16,16 @@ const App = () => {
   const navigate = useNavigate()
   return (
     <>
-      <ToastContainer newestOnTop />
+      <ToastContainer
+        position="top-right"
+        autoClose={3000}
+        hideProgressBar
+        closeButton={false}
+        pauseOnHover={false}
+        pauseOnFocusLoss={false}
+        draggable={false}
+        newestOnTop
+      />
       <Routes>
         <Route path="/" element={<Landing />} />
         <Route path="/signup" element={<Signup />} />

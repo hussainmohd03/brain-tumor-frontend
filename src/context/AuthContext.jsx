@@ -9,6 +9,8 @@ const AuthContext = createContext(null)
 
 export const AuthProvider = ({ children }) => {
   const navigate = useNavigate()
+  const [notifications, setNotifications] = useState([])
+  const [unreadCount, setUnreadCount] = useState(0)
   const [user, setUser] = useState(null)
   const [loading, setLoading] = useState(true)
   const [authLoading, setAuthLoading] = useState(false)
@@ -20,13 +22,9 @@ export const AuthProvider = ({ children }) => {
     setSocket(socket)
 
     socket.on('Notification', (notif) => {
-      toast.info(<OracleToast message={notif.message} />, {
-        position: 'top-right',
-        autoClose: 500,
-        closeButton: false,
-        hideProgressBar: true,
-        draggable: false
-      })
+      toast(<OracleToast key={Date.now()} message={notif.message} />)
+      setNotifications((prev) => [...prev, notif])
+      setUnreadCount((prev) => prev + 1)
     })
 
     return () => {
@@ -112,6 +110,10 @@ export const AuthProvider = ({ children }) => {
         user,
         loading,
         authLoading,
+        unreadCount,
+        notifications,
+        setUnreadCount,
+        setNotifications,
         login,
         signup,
         logout,

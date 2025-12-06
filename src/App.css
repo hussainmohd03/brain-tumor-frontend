@@ -663,7 +663,6 @@ body {
   opacity: 0.6;
   cursor: not-allowed;
 }
-/* Remove all Toastify default styling */
 .Toastify__toast {
   background: transparent !important;
   box-shadow: none !important;
@@ -672,20 +671,6 @@ body {
   width: 400px;
 }
 
-.Toastify__toast-body {
-  padding: 0 !important;
-  margin: 0 !important;
-}
-
-.Toastify__progress-bar {
-  display: none !important;
-}
-
-.Toastify__toast-icon {
-  display: none !important;
-}
-
-/* Oracle Notification Card */
 .oracle-toast {
   background: rgba(171, 171, 171, 100%);
   border-radius: 17px;
@@ -697,7 +682,6 @@ body {
   gap: 8px;
 }
 
-/* Header Row */
 .oracle-toast-header {
   display: flex;
   justify-content: space-between;
@@ -727,7 +711,6 @@ body {
   color: #646464;
 }
 
-/* Message Text */
 .oracle-message {
   font-size: 19px;
   font-weight: 500;
@@ -735,7 +718,30 @@ body {
   margin: 0;
   margin-top: 4px;
 }
-
+.bell-wrapper {
+  position: relative;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+}
+.bell-icon {
+  width: 50px;
+}
+.bell-badge {
+  position: absolute;
+  top: 1px;
+  right: 1px;
+  background: #c74634;
+  color: white;
+  font-size: 12px;
+  min-width: 16px;
+  height: 20px;
+  border-radius: 999px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 4px;
+}
 /* @media (max-width: 768px) {
   .page-container {
     grid-template: 20% 60% 1fr / 1fr;
