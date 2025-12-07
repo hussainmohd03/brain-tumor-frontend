@@ -13,8 +13,8 @@ import ResetPassword from './pages/ResetPassword'
 import './App.css'
 import { ToastContainer } from 'react-toastify'
 import NotificationPanel from './components/NotificationPanel'
+import ProtectedRoute from './components/ProtectedRoute'
 const App = () => {
-  const navigate = useNavigate()
   return (
     <>
       <ToastContainer
@@ -31,10 +31,38 @@ const App = () => {
         <Route path="/" element={<Landing />} />
         <Route path="/signup" element={<Signup />} />
         <Route path="/signin" element={<Signin />} />
-        <Route path="/profile" element={<Profile />} />
-        <Route path="/create-study" element={<CreateStudy />} />
-        <Route path="/settings" element={<Settings />} />
-        <Route path="/dashboard" element={<Dashboard />} />
+        <Route
+          path="/profile"
+          element={
+            <ProtectedRoute>
+              <Profile />
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path="/create-study"
+          element={
+            <ProtectedRoute>
+              <CreateStudy />
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path="/settings"
+          element={
+            <ProtectedRoute>
+              <Settings />
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path="/dashboard"
+          element={
+            <ProtectedRoute>
+              <Dashboard />
+            </ProtectedRoute>
+          }
+        />
         <Route path="/verify-email" element={<VerifyEmail />} />
         <Route path="/forget-password" element={<ForgetPassword />} />
         <Route path="/reset-password" element={<ResetPassword />} />

@@ -54,8 +54,7 @@ const Signup = () => {
             date={date}
           />
         )
-
-      if (!doctor.license_status !== 'ACTIVE')
+      if (doctor.license_status !== 'ACTIVE')
         return toast(
           <OracleToast message="Your NHRA license is not active." date={date} />
         )
