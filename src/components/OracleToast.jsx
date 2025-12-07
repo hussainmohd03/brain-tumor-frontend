@@ -1,4 +1,5 @@
-const OracleToast = ({ message }) => {
+import { timeAgo } from '../../utils/timeAgo'
+const OracleToast = ({ message, date }) => {
   return (
     <div className="oracle-toast">
       <div className="oracle-toast-header">
@@ -7,7 +8,7 @@ const OracleToast = ({ message }) => {
           <span className="oracle-title">ORACLE</span>
         </div>
 
-        <span className="oracle-time">Just now</span>
+        <span className="oracle-time">{timeAgo(date)}</span>
       </div>
 
       <p className="oracle-message">{message}</p>

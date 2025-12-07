@@ -12,6 +12,7 @@ import ForgetPassword from './pages/ForgetPassword'
 import ResetPassword from './pages/ResetPassword'
 import './App.css'
 import { ToastContainer } from 'react-toastify'
+import NotificationPanel from './components/NotificationPanel'
 const App = () => {
   const navigate = useNavigate()
   return (
@@ -38,6 +39,7 @@ const App = () => {
         <Route path="/forget-password" element={<ForgetPassword />} />
         <Route path="/reset-password" element={<ResetPassword />} />
       </Routes>
+      <NotificationPanel />
     </>
   )
 }

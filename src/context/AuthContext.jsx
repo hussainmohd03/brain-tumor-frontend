@@ -22,7 +22,13 @@ export const AuthProvider = ({ children }) => {
     setSocket(socket)
 
     socket.on('Notification', (notif) => {
-      toast(<OracleToast key={Date.now()} message={notif.message} />)
+      toast(
+        <OracleToast
+          key={Date.now()}
+          message={notif.message}
+          date={notif.createdAt}
+        />
+      )
       setNotifications((prev) => [...prev, notif])
       setUnreadCount((prev) => prev + 1)
     })

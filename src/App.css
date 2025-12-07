@@ -742,6 +742,109 @@ body {
   justify-content: center;
   padding: 0 4px;
 }
+
+.notif-overlay {
+  position: fixed;
+  inset: 0;
+  display: flex;
+  justify-content: flex-end;
+  z-index: 999;
+  animation: fadeIn 0.25s ease-in;
+}
+
+.notif-panel {
+  width: 400px;
+  background: rgba(55, 55, 55, 0.85);
+  padding: 18px 18px 24px;
+  box-shadow: -4px 0 12px rgba(0, 0, 0, 0.2);
+  display: flex;
+  flex-direction: column;
+}
+
+.notif-panel-header {
+  display: flex;
+  justify-content: space-between;
+
+  align-items: center;
+  margin-bottom: 12px;
+}
+
+.notif-panel-header h3 {
+  color: white;
+  margin: 0;
+  font-size: 18px;
+}
+
+.notif-panel-header button {
+  background: transparent;
+  border: none;
+  color: #d0d0d0;
+  cursor: pointer;
+  font-size: 18px;
+}
+
+.notif-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.notif-empty {
+  align-self: center;
+  color: #d0d0d0;
+}
+.notif-row {
+  background: #e5e5e5;
+  border-radius: 17px;
+  padding: 8px 16.5px;
+  height: 60px;
+  position: relative;
+}
+
+.notif-row-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 4px;
+}
+
+.notif-left {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.notif-oracle-icon {
+  width: 22px;
+  height: 22px;
+}
+
+.notif-oracle-title {
+  font-size: 13px;
+  font-weight: 700;
+  color: #757575;
+}
+
+.notif-time {
+  font-size: 13px;
+  color: #a0a0a0;
+}
+
+.notif-row-message {
+  margin: 0;
+  font-size: 18px;
+  color: #222;
+  position: absolute;
+  bottom: 9px;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
 /* @media (max-width: 768px) {
   .page-container {
     grid-template: 20% 60% 1fr / 1fr;
