@@ -4,16 +4,14 @@ import { useState, useEffect } from 'react'
 import SignupStep1 from '../components/SignupStep1'
 import SignupStep2 from '../components/SignupStep2'
 import { useAuth } from '../context/AuthContext'
+import { ALLOWED_SPECIALTIES } from '../../globals'
+import { fetchDoctorByLicense } from '../../services/nhra'
+import { toast } from 'react-toastify'
+import OracleToast from '../components/OracleToast'
 
 const Signup = () => {
   const { signup, user } = useAuth()
   const navigate = useNavigate()
-
-  useEffect(() => {
-    if (user) {
-      navigate('/dashboard')
-    }
-  }, [user])
   const [next, setNext] = useState(false)
   const [formData, setFormData] = useState({
     fullName: '',
@@ -25,12 +23,50 @@ const Signup = () => {
     checked: false
   })
 
-  const handleChange = (e) => {
+  useEffect(() => {
+    if (user) {
+      navigate('/dashboard')
+    }
+  }, [user])
+
+  const handleChange = async (e) => {
     const { name, type, value, checked } = e.target
     setFormData({
       ...formData,
       [name]: type === 'checkbox' ? checked : value
     })
+
+    if (name === 'nhra' && value.length === 8) {
+      const doctor = await fetchDoctorByLicense(value)
+      const date = new Date()
+      if (!doctor)
+        return toast(
+          <OracleToast
+            message="No doctor found with this NHRA license."
+            date={date}
+          />
+        )
+
+      if (!ALLOWED_SPECIALTIES.includes(doctor.specialty))
+        return toast(
+          <OracleToast
+            message="Your medical specialty is not permitted to use this system."
+            date={date}
+          />
+        )
+
+      if (!doctor.license_status !== 'ACTIVE')
+        return toast(
+          <OracleToast message="Your NHRA license is not active." date={date} />
+        )
+
+      setFormData((prev) => ({
+        ...prev,
+        fullName: doctor.full_name,
+        institution: doctor.institution,
+        email: doctor.email
+      }))
+    }
   }
 
   const validatePassword = () => {

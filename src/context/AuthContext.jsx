@@ -4,6 +4,7 @@ import { createSocket } from '../realtime/socket'
 import { useNavigate } from 'react-router-dom'
 import { toast } from 'react-toastify'
 import OracleToast from '../components/OracleToast'
+import { fetchDoctorByEmail } from '../../services/nhra'
 
 const AuthContext = createContext(null)
 
@@ -56,6 +57,15 @@ export const AuthProvider = ({ children }) => {
   const login = async ({ email, password }) => {
     try {
       setAuthLoading(true)
+      const doctor = await fetchDoctorByEmail(email)
+      if (!doctor || doctor.license_status !== 'ACTIVE') {
+        return toast(
+          <OracleToast
+            message="Your NHRA license is expired or inactive."
+            date={new Date()}
+          />
+        )
+      }
 
       await Client.post('/api/auth/login', { email, password })
 

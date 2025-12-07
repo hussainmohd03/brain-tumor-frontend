@@ -62,11 +62,17 @@ body {
 .page-content h1 {
   font-size: 91px;
 }
+
 .page-content p {
   font-size: 47px;
   font-weight: 150;
   line-height: 55px;
   width: 78%;
+}
+#nhra-hint {
+  font-size: 29px;
+  margin-top: 4px;
+  color: #cbd0dc;
 }
 .page-content button {
   margin-top: 30px;
@@ -85,6 +91,7 @@ body {
   font-size: 59px;
   font-weight: 200;
 }
+
 .signup-content {
   margin-top: -5%;
 }
