@@ -74,7 +74,12 @@ export const AuthProvider = ({ children }) => {
 
       navigate('/dashboard')
     } catch (error) {
-      throw error
+      toast(
+        <OracleToast
+          message={error.response?.data?.msg || 'Login failed'}
+          date={new Date()}
+        />
+      )
     } finally {
       setAuthLoading(false)
     }
