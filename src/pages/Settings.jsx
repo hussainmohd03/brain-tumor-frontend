@@ -2,9 +2,23 @@ import Header from '../components/Header'
 import Sidebar from '../components/Sidebar'
 import SettingsToggleBtns from '../components/SettingsToggleBtns'
 import { useUser } from '../context/UserContext'
+import { useModal } from '../context/ModalContext'
 
 const Settings = () => {
   const { clearData, deleteAccount } = useUser()
+  const { confirm } = useModal()
+
+  const handleDelete = async () => {
+    const confirmed = await confirm(
+      'Are you sure you want to delete your account?'
+    )
+    if (confirmed) await deleteAccount()
+  }
+
+  const handleClear = async () => {
+    const confirmed = await confirm('Clear all your data?')
+    if (confirmed) await clearData()
+  }
   return (
     <>
       <main className="main-container">
@@ -24,13 +38,13 @@ const Settings = () => {
           <div className="button-container">
             <button
               className="delete-button save-button auth-button"
-              onClick={deleteAccount}
+              onClick={handleDelete}
             >
               Delete Account
             </button>
             <button
               className="clear-button save-button auth-button"
-              onClick={clearData}
+              onClick={handleClear}
             >
               Clear Data
             </button>

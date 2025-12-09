@@ -6,6 +6,7 @@ import { AuthProvider } from './context/AuthContext.jsx'
 import { UserProvider } from './context/UserContext.jsx'
 import { StudyProvider } from './context/StudyContext.jsx'
 import { NotificationProvider } from './context/NotificationContext.jsx'
+import { ModalProvider } from './context/ModalContext.jsx'
 
 createRoot(document.getElementById('root')).render(
   <BrowserRouter>
@@ -13,9 +14,11 @@ createRoot(document.getElementById('root')).render(
       <UserProvider>
         <StudyProvider>
           <NotificationProvider>
-            <StrictMode>
-              <App />
-            </StrictMode>
+            <ModalProvider>
+              <StrictMode>
+                <App />
+              </StrictMode>
+            </ModalProvider>
           </NotificationProvider>
         </StudyProvider>
       </UserProvider>

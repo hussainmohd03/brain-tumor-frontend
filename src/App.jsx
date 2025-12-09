@@ -14,6 +14,7 @@ import './App.css'
 import { ToastContainer } from 'react-toastify'
 import NotificationPanel from './components/NotificationPanel'
 import ProtectedRoute from './components/ProtectedRoute'
+
 const App = () => {
   return (
     <>

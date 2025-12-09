@@ -11,10 +11,10 @@ const Sidebar = () => {
           <NavLink to="/create-study">
             <img src="/icons/create-new-study.svg" alt="Create New Study" />
           </NavLink>
-          <NavLink to="/dashboard">
+          <NavLink to="/dashboard" data-title="Dashboard">
             <img src="/icons/dashboard-icon.svg" alt="Dashboard" />
           </NavLink>
-          <NavLink to="">
+          <NavLink to="/analytics">
             <img src="/icons/analytics-icon.svg" alt="Analytics" />
           </NavLink>
           <NavLink to="/settings">
