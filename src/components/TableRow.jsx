@@ -18,7 +18,7 @@ const TableRow = ({ study }) => {
                 className="download-icon"
                 src="/icons/download.svg"
                 alt="download"
-                onClick={() => (window.location.href = study.fileUrl)}
+                onClick={() => (window.location.href = study.report.filePath)}
               />
             </>
           ) : (
