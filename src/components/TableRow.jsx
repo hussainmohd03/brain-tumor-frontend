@@ -18,7 +18,7 @@ const TableRow = ({ study }) => {
               <span className="status-complete">Complete.</span>
               <img
                 className="download-icon"
-                src="/icons/download.svg"
+                src="/icons/download-icon.svg"
                 alt="download"
                 onClick={() => window.open(study.report.filePath, '_blank')}
               />
