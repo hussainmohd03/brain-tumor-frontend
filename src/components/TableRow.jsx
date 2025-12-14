@@ -1,5 +1,7 @@
 import { formatDateTime } from '../../utils'
 const TableRow = ({ study }) => {
+  const isCompleted = study.status === 'COMPLETED'
+
   return (
     <>
       <div className="table-row">
@@ -11,14 +13,14 @@ const TableRow = ({ study }) => {
         <div className="study-date">{formatDateTime(study.createdAt)}</div>
 
         <div className="study-status">
-          {study.status === 'complete' ? (
+          {isCompleted ? (
             <>
               <span className="status-complete">Complete.</span>
               <img
                 className="download-icon"
                 src="/icons/download.svg"
                 alt="download"
-                onClick={() => (window.location.href = study.report.filePath)}
+                onClick={() => window.open(study.report.filePath, '_blank')}
               />
             </>
           ) : (

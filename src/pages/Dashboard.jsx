@@ -2,10 +2,11 @@ import Header from '../components/Header'
 import Sidebar from '../components/Sidebar'
 import { useEffect, useState } from 'react'
 import { fetchStudies } from '../../utils'
+import { useAuth } from '../context/AuthContext'
 import TableRow from '../components/TableRow'
 
 const Dashboard = () => {
-  const [studies, setStudies] = useState([])
+  const { studies, setStudies } = useAuth()
   const [loading, setLoading] = useState(true)
 
   useEffect(() => {
@@ -32,7 +33,7 @@ const Dashboard = () => {
                 <div className="table-empty">No studies found.</div>
               )}
               {studies.map(
-                (s) => (console.log(s), (<TableRow key={s.id} study={s} />))
+                (s) => (<TableRow key={s.id} study={s} />)
               )}
             </div>
           </section>

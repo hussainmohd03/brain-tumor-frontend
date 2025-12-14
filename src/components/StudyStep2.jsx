@@ -46,7 +46,6 @@ const StudyStep2 = ({ scans, setScans }) => {
           hidden
           onChange={saveFile}
           accept="image/*"
-          multiple
         />
       </div>
     </>

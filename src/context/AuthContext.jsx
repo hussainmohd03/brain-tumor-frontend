@@ -16,6 +16,7 @@ export const AuthProvider = ({ children }) => {
   const [loading, setLoading] = useState(true)
   const [authLoading, setAuthLoading] = useState(false)
   const [socket, setSocket] = useState(null)
+  const [studies, setStudies] = useState([])
 
   useEffect(() => {
     if (!user) return
@@ -32,6 +33,22 @@ export const AuthProvider = ({ children }) => {
       )
       setNotifications((prev) => [...prev, notif])
       setUnreadCount((prev) => prev + 1)
+      
+      if (notif.type === 'report_ready') {
+        const { studyId, status, reportUrl } = notif.metaData || {}
+        if (!studyId) return
+        setStudies((prev) =>
+          prev.map((s) =>
+            s.id === studyId
+              ? {
+                  ...s,
+                  status,
+                  report: reportUrl ? { filePath: reportUrl } : s.report
+                }
+              : s
+          )
+        )
+      }
     })
 
     return () => {
@@ -133,6 +150,8 @@ export const AuthProvider = ({ children }) => {
         authLoading,
         unreadCount,
         notifications,
+        studies,
+        setStudies,
         setUnreadCount,
         setNotifications,
         login,
