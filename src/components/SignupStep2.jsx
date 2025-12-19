@@ -1,4 +1,4 @@
-import Terms from './terms'
+import Terms from './Terms'
 
 const SignupStep2 = ({ formData, handleChange }) => {
   const hasNumber = /\d/.test(formData.password)
