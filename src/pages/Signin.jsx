@@ -1,7 +1,7 @@
 import OracleLogo from '../components/OracleLogo'
 import { useNavigate, NavLink } from 'react-router-dom'
 import { useState, useEffect } from 'react'
-import Terms from '../components/terms'
+import Terms from '../components/Terms'
 import SigninForm from '../components/SigninForm'
 import { useAuth } from '../context/AuthContext'
 
