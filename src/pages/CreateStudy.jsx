@@ -28,7 +28,7 @@ const CreateStudy = () => {
     })
   }
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault()
     if (!next) {
       setNext(true)
@@ -41,7 +41,7 @@ const CreateStudy = () => {
     })
 
     // send data to back end
-    createStudy(studyData)
+    await createStudy(studyData)
     setNext(false)
     navigate('/dashboard')
   }

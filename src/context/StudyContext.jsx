@@ -1,10 +1,11 @@
 import { createContext, useContext, useState, useEffect, use } from 'react'
 import Client from '../../services/api'
+import { useAuth } from './AuthContext'
 
 const StudyContext = createContext(null)
 
 export const StudyProvider = ({ children }) => {
-  const [studies, setStudies] = useState([])
+  const { setStudies } = useAuth()
   const getStudies = async () => {
     try {
       const res = await Client.get('/api/study')
@@ -17,13 +18,14 @@ export const StudyProvider = ({ children }) => {
   const createStudy = async (formData) => {
     try {
       const res = await Client.post('/api/study', formData)
-      setStudies((prev) => [...prev, res.data.study])
+      setStudies((prev) => [res.data.study, ...prev])
+      return res.data.study
     } catch (error) {
       console.error({ msg: 'error creating study', error })
     }
   }
   return (
-    <StudyContext.Provider value={{ getStudies, createStudy, studies }}>
+    <StudyContext.Provider value={{ getStudies, createStudy }}>
       {children}
     </StudyContext.Provider>
   )

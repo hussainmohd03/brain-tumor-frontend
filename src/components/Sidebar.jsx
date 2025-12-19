@@ -14,9 +14,6 @@ const Sidebar = () => {
           <NavLink to="/dashboard" data-title="Dashboard">
             <img src="/icons/dashboard-icon.svg" alt="Dashboard" />
           </NavLink>
-          <NavLink to="/analytics">
-            <img src="/icons/analytics-icon.svg" alt="Analytics" />
-          </NavLink>
           <NavLink to="/settings">
             <img src="/icons/settings-icon.svg" alt="Settings" />
           </NavLink>

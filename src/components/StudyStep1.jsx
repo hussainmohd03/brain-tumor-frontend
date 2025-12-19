@@ -6,13 +6,12 @@ const StudyStep1 = ({ formData, handleChange, user }) => {
       <h3 className="create-study-subtitle">Fill in the following fields</h3>
       <div className="input-field profile-edit create-study-input">
         <label htmlFor="NHRA-License">NHRA License No*</label>
-        <div className="edit-field">
+        <div className="edit-field readonly-field">
           <input
             type="text"
             id="NHRA-License"
             name="nhraLicense"
             value={`NHRA-${user?.nhra}`}
-            required
             readOnly
           />
         </div>
@@ -33,13 +32,13 @@ const StudyStep1 = ({ formData, handleChange, user }) => {
       </div>
       <div className="input-field profile-edit create-study-input">
         <label htmlFor="Date-Time">Date & Time</label>
-        <div className="edit-field">
+        <div className="edit-field readonly-field">
           <input
             type="text"
             id="Date-Time"
             name="dateTime"
             value={today.toDateString()}
-            required
+            readOnly
           />
         </div>
       </div>

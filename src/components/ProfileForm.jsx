@@ -7,7 +7,7 @@ const ProfileForm = () => {
     <>
       <div className="input-field profile-edit">
         <label htmlFor="NHRA-License">NHRA License</label>
-        <div className="edit-field">
+        <div className="edit-field readonly-field">
           <input
             type="text"
             id="NHRA-License"
@@ -20,7 +20,7 @@ const ProfileForm = () => {
       <hr className="profile-edit " />
       <div className="input-field profile-edit">
         <label htmlFor="NHRA-Holder-Name">NHRA Holder Name</label>
-        <div className="edit-field">
+        <div className="edit-field readonly-field">
           <input
             type="text"
             id="NHRA-Holder-Name"
@@ -31,7 +31,7 @@ const ProfileForm = () => {
       </div>
       <div className="input-field profile-edit">
         <label htmlFor="NHRA-Holder-Email">NHRA Holder Email</label>
-        <div className="edit-field">
+        <div className="edit-field readonly-field">
           <input
             type="email"
             id="NHRA-Holder-Email"
