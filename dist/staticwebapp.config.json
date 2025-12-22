@@ -15,7 +15,8 @@
       "route": "/",
       "methods": [
         "get"
-      ]
+      ],
+      "statusCode": 200
     }
   ]
 }
