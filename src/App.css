@@ -481,13 +481,13 @@ body {
 }
 
 .image-overlay p {
-  font-size: 1.4375rem;
+  font-size: 1.9375rem;
   width: 65%;
   margin: 0;
 }
 
 .image-overlay h3 {
-  font-size: 2.25rem;
+  font-size: 2.95rem;
   margin: 0;
 }
 
@@ -498,7 +498,7 @@ body {
   padding: 1.5%;
   width: 20%;
   color: white;
-  font-size: 0.90625rem;
+  font-size: 1.23625rem;
   margin-top: 2%;
   font-family: 'oracle sans', sans-serif;
   cursor: pointer;

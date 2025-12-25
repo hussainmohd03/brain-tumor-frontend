@@ -13,11 +13,13 @@ const CreateStudy = () => {
   const { createStudy } = useStudy()
   const [starting, setStarting] = useState(true)
   const [next, setNext] = useState(false)
+
   const [formData, setFormData] = useState({
     nhraLicense: '',
     patientId: '',
     dateTime: ''
   })
+  
   const [scans, setScans] = useState([])
 
   const handleChange = (e) => {

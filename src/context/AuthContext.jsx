@@ -33,7 +33,7 @@ export const AuthProvider = ({ children }) => {
       )
       setNotifications((prev) => [...prev, notif])
       setUnreadCount((prev) => prev + 1)
-      
+
       if (notif.type === 'report_ready') {
         const { studyId, status, reportUrl } = notif.metaData || {}
         if (!studyId) return
